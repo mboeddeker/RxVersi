@@ -7,34 +7,46 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class TrendingFeedVc: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TrendingFeedVc: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let refreshControl = UIRefreshControl()
+    
+    var dataSource = PublishSubject<[Repo]>()
+    
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.reloadData()
-
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "trendingRepoCell", for: indexPath) as? TrendingRepoCell
-            else { return UITableViewCell() }
-        let repo = Repo(image: #imageLiteral(resourceName: "searchIconLarge"), name: "Swift", description: "Apples Programming language", numberOfForks: 356, language: "Swift", numberOfContributors: 265, repoUrl: "www.google.de")
-        cell.configureCell(repo: repo)
         
-        return cell
+        addRefreshControl()
+        fetchData()
+        initTableView()
+        
     }
-
+    
+    @objc func fetchData() {
+        DownloadService.instance.downloadTrendingRepos { (trendingReposArray) in
+            self.dataSource.onNext(trendingReposArray)
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func initTableView(){
+        dataSource.bind(to: tableView.rx.items(cellIdentifier: "trendingRepoCell")){ (row ,repo: Repo, cell: TrendingRepoCell) in
+            cell.configureCell(repo: repo)
+        }.disposed(by: disposeBag)
+    }
+    
+    func addRefreshControl(){
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = #colorLiteral(red: 0.2579534675, green: 0.4541416886, blue: 1, alpha: 1)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Hot Github Repos 🔥", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2579534675, green: 0.4541416886, blue: 1, alpha: 1), NSAttributedStringKey.font: UIFont(name: "AvenirNext-Demibold", size: 16.0)!])
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+    }
+    
 }
 
