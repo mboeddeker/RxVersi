@@ -23,6 +23,8 @@
 		7C82A5AF1FB265860026FA43 /* TrendingRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A5AE1FB265860026FA43 /* TrendingRepoCell.swift */; };
 		7C82A5B31FB26B300026FA43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A5B21FB26B300026FA43 /* Constants.swift */; };
 		7C82A5B51FB26C3D0026FA43 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A5B41FB26C3D0026FA43 /* DownloadService.swift */; };
+		7C82A5B71FB467010026FA43 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A5B61FB467010026FA43 /* SearchCell.swift */; };
+		7C82A5BA1FB46F760026FA43 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A5B91FB46F760026FA43 /* UIViewControllerExt.swift */; };
 		939BA7BECE0495AD55DF04CA /* Pods_RxVersi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FF79431556AB49F3E912DD /* Pods_RxVersi.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		7C82A5AE1FB265860026FA43 /* TrendingRepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoCell.swift; sourceTree = "<group>"; };
 		7C82A5B21FB26B300026FA43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C82A5B41FB26C3D0026FA43 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		7C82A5B61FB467010026FA43 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		7C82A5B91FB46F760026FA43 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B9FF79431556AB49F3E912DD /* Pods_RxVersi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxVersi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D526E62D92B87E8BEEB293A8 /* Pods_RxVersiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxVersiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D6D092433065DDEFE46EEF /* Pods-RxVersi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxVersi.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxVersi/Pods-RxVersi.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		7C82A5741FB254190026FA43 /* RxVersi */ = {
 			isa = PBXGroup;
 			children = (
+				7C82A5B81FB46F630026FA43 /* Extensions */,
 				7C82A5B11FB26B0B0026FA43 /* Utilities */,
 				7C82A5B01FB26B000026FA43 /* Services */,
 				7C82A5A41FB255C70026FA43 /* Model */,
@@ -176,6 +181,7 @@
 				7C82A5A81FB25EF10026FA43 /* RoundedBorderButton.swift */,
 				7C82A5AA1FB260500026FA43 /* RoundedBorderTextfield.swift */,
 				7C82A5AE1FB265860026FA43 /* TrendingRepoCell.swift */,
+				7C82A5B61FB467010026FA43 /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +217,14 @@
 				7C82A5B21FB26B300026FA43 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7C82A5B81FB46F630026FA43 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C82A5B91FB46F760026FA43 /* UIViewControllerExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D1CDB706C55358E8AEE6E8E3 /* Pods */ = {
@@ -508,6 +522,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C82A5AB1FB260500026FA43 /* RoundedBorderTextfield.swift in Sources */,
+				7C82A5BA1FB46F760026FA43 /* UIViewControllerExt.swift in Sources */,
+				7C82A5B71FB467010026FA43 /* SearchCell.swift in Sources */,
 				7C82A5AF1FB265860026FA43 /* TrendingRepoCell.swift in Sources */,
 				7C82A5A71FB258040026FA43 /* SearchVC.swift in Sources */,
 				7C82A5781FB254190026FA43 /* TrendingFeedVc.swift in Sources */,
